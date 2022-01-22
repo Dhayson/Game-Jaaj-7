@@ -11,15 +11,14 @@ public class NemesisMove : MonoBehaviour
     [SerializeField] Transform groundDetector;
     [SerializeField] private List<AttachedCoroutine<Collider2D>> jumpRoutines;
     private bool groundContact { get { return Physics2D.OverlapPoint(groundDetector.position, level); } }
-    // Start is called before the first frame update
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         jumpRoutines = new();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (groundContact) rig.velocity = new Vector2(vel, rig.velocity.y);
     }
@@ -49,7 +48,6 @@ public class NemesisMove : MonoBehaviour
             jumpRoutines.RemoveAll(routine => routine.origin == other);
         }
     }
-
 
     public IEnumerator Jump()
     {

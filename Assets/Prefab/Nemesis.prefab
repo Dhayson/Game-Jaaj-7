@@ -174,3 +174,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundDetector: {fileID: 3267047075089375925}
+  jumpRoutines: []
