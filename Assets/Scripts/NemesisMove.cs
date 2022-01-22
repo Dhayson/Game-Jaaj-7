@@ -7,28 +7,54 @@ public class NemesisMove : MonoBehaviour
     private Rigidbody2D rig;
     public float vel;
     public float jumpForce;
+    [SerializeField] LayerMask level;
+    [SerializeField] Transform groundDetector;
+    [SerializeField] private List<AttachedCoroutine<Collider2D>> jumpRoutines;
+    private bool groundContact { get { return Physics2D.OverlapPoint(groundDetector.position, level); } }
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        jumpRoutines = new();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rig.velocity = new Vector2(vel, rig.velocity.y);
+        if (groundContact) rig.velocity = new Vector2(vel, rig.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "JumpPad")
         {
-            Jump();
+            //Start a Jump Coroutine attached to the respective Collider2D, and add to the list.
+            var routine = new AttachedCoroutine<Collider2D>(StartCoroutine(Jump()), other);
+            jumpRoutines.Add(routine);
         }
     }
 
-    public void Jump()
+    void OnTriggerExit2D(Collider2D other)
     {
+        if (other.gameObject.tag == "JumpPad")
+        {
+            //Stop and remove of the list all Coroutines with the respective Collider2D.
+            foreach (var routine in jumpRoutines)
+            {
+                if (routine.origin == other)
+                {
+                    StopCoroutine(routine.routine);
+                }
+            }
+            jumpRoutines.RemoveAll(routine => routine.origin == other);
+        }
+    }
+
+
+    public IEnumerator Jump()
+    {
+        yield return new WaitUntil(() => groundContact);
+        rig.velocity = new Vector2(rig.velocity.x, 0);
         rig.AddForce(new Vector2(0, jumpForce));
     }
 }
