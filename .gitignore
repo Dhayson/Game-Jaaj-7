@@ -519,3 +519,18 @@ package-lock.json
 Sol Project backup.7z
 
 Sol Project/UserSettings/*
+
+Assets/NuGet/Resources/defaultIcon.png
+Assets/NuGet/Resources/defaultIcon.png.meta
+Assets/NuGet/Editor/NugetForUnity.dll.meta
+Assets/NuGet/Editor/NugetForUnity.dll
+Assets/NuGet/Resources.meta
+Assets/NuGet/README.pdf.meta
+Assets/NuGet/README.pdf
+Assets/NuGet/LICENSE.meta
+Assets/NuGet/LICENSE
+Assets/NuGet/Editor.meta
+Assets/NuGet.meta
+Assets/NuGet.config.meta
+Assets/NuGet.config
+!Assets/Packages/*
