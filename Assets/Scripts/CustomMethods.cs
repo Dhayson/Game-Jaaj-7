@@ -14,3 +14,8 @@ public struct AttachedCoroutine<T>
     public Coroutine routine;
     public T origin;
 }
+public static class Global
+{
+    //global field to store the chosen image
+    public static string nemesisImagePath;
+}
