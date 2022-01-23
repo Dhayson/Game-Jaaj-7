@@ -10,8 +10,11 @@ public class NemesisSprite : MonoBehaviour
     void OnEnable()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        var MySprite = IMG2Sprite.instance.LoadNewSprite(Global.nemesisImagePath, size: 1);
-        spriteRenderer.sprite = MySprite;
+        if (Global.nemesisImagePath is not null)
+        {
+            var MySprite = IMG2Sprite.instance.LoadNewSprite(Global.nemesisImagePath, size: 1);
+            spriteRenderer.sprite = MySprite;
+        }
         if (FirstScene)
         {
             StartCoroutine(NextScene());
