@@ -13,7 +13,9 @@ public class NemesisSprite : MonoBehaviour
         if (Global.nemesisImagePath is not null)
         {
             var MySprite = IMG2Sprite.instance.LoadNewSprite(Global.nemesisImagePath, size: 1);
-            spriteRenderer.sprite = MySprite;
+            if (MySprite is not null)
+                spriteRenderer.sprite = MySprite;
+            spriteRenderer.size = new Vector2(Global.sizeMultiplier, Global.sizeMultiplier);
         }
         if (FirstScene)
         {

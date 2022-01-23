@@ -28,6 +28,7 @@ public class IMG2Sprite : MonoBehaviour
 
     public Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, float size = 0)
     {
+        if (!File.Exists(FilePath)) return null;
         // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
         Sprite NewSprite;
         Texture2D SpriteTexture = LoadTexture(FilePath);
