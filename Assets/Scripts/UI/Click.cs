@@ -15,6 +15,7 @@ public class Click : MonoBehaviour
     private Collider2D col;
     private RectTransform rect;
     private MethodInfo method;
+    protected object[] parameters = null;
     protected void Start()
     {
         method = trigger.GetType().GetMethod(triggerMethod);
@@ -36,7 +37,7 @@ public class Click : MonoBehaviour
             RaycastHit2D hit = Global.MouseClick(Camera.main);
             if (hit && hit.collider.gameObject == gameObject && gameObject.activeInHierarchy)
             {
-                method.Invoke(trigger, null);
+                method.Invoke(trigger, parameters);
             }
         }
     }

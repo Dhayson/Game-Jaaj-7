@@ -398,6 +398,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 749615699402040813, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
+      propertyPath: nextScene
+      value: SelectSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 749615699402040813, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
       propertyPath: FirstScene
       value: 1
       objectReference: {fileID: 0}

@@ -30,3 +30,16 @@ public static class Global
         return Physics2D.Raycast(ray.origin, ray.direction);
     }
 }
+
+public static class HabilitySet
+{
+    public static Hability Q;
+    public static Hability W;
+    public static Hability E;
+    public static Hability R;
+    public static Hability A;
+    public static Hability S;
+}
+
+public enum Hability { gelo }
+public enum Key { Q, W, E, R, A, S }

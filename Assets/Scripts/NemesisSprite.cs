@@ -23,9 +23,10 @@ public class NemesisSprite : MonoBehaviour
         spriteRenderer.size = Global.sizeMultiplier;
     }
 
+    [SerializeField] private string nextScene;
     public void NextScene()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(nextScene);
     }
 
     public void IncreaseX()
