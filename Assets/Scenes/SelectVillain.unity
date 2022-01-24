@@ -123,25 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &12733473 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8952327747652728913, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
-  m_PrefabInstance: {fileID: 8952327747648418928}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &12733479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 12733473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82dc9eb1c316b4ed3b17546e39138082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  from: {fileID: 1869809308364869477}
-  to: {fileID: 1422382487}
 --- !u!1 &382399073
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,10 +222,6 @@ PrefabInstance:
       propertyPath: Nemesis
       value: 
       objectReference: {fileID: 1014085353}
-    - target: {fileID: 240879339544333607, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 531271371195853993, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: trigger
       value: 
@@ -261,46 +238,14 @@ PrefabInstance:
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1014085370}
-    - target: {fileID: 2675894027724980185, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530413950368836782, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3567922769861204786, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_Name
-      value: Level
-      objectReference: {fileID: 0}
-    - target: {fileID: 3567922769861204786, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3672190175421803159, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1014085370}
-    - target: {fileID: 4158440662393520221, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4173243302352500354, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1014085370}
-    - target: {fileID: 4268368804411602424, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344505076389315148, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5933406487041928034, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6744833059434280754, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: trigger
       value: 
@@ -309,17 +254,9 @@ PrefabInstance:
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1014085370}
-    - target: {fileID: 7926121612112509981, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8638840981402091882, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: m_Name
       value: Selector
-      objectReference: {fileID: 0}
-    - target: {fileID: 8638840981402091882, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8638840981402091886, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: m_Pivot.x
@@ -409,10 +346,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 382399075}
-    - target: {fileID: 8638840981910805620, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9103569563096214161, guid: 2ee3e6506c2454a1b8db7a39ee4b1ae2, type: 3}
       propertyPath: trigger
       value: 
@@ -595,11 +528,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eed08afcb9b6f7609984c8373fed3691, type: 3}
---- !u!1 &1869809308364869477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7336340769440693013, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
-  m_PrefabInstance: {fileID: 8952327747648418928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8952327747648418928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -607,6 +535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 12733479, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
+      propertyPath: to
+      value: 
+      objectReference: {fileID: 1422382487}
     - target: {fileID: 7336340769440693008, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
       propertyPath: m_Camera
       value: 
@@ -698,14 +630,6 @@ PrefabInstance:
     - target: {fileID: 7336340769440693013, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
       propertyPath: m_Name
       value: IntroCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8952327747652728916, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
-      propertyPath: trigger
-      value: 
-      objectReference: {fileID: 12733479}
-    - target: {fileID: 8952327747652728916, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
-      propertyPath: triggerMethod
-      value: Switch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc699cc38c59dbb54b712ed900a2f777, type: 3}
