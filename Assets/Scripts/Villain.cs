@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,13 @@ public class Villain : MonoBehaviour
 
     void Awake()
     {
+        Type thisType = this.GetType();
         control = new();
+        if (HabilitySet.E != Hability.vazio)
+        {
+            var method = thisType.GetMethod(HabilitySet.E.ToString());
+            control.Skills.E.started += ctx => method.Invoke(this, null);
+        }
         //syntax: control.Skills.Q.started += ctx => Method();
     }
     void Start()
@@ -21,5 +28,10 @@ public class Villain : MonoBehaviour
     void FixedUpdate()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    public void gelo()
+    {
+        Debug.Log("frio");
     }
 }

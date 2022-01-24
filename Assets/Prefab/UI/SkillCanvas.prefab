@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 8026490962429066145}
   triggerMethod: Set
-  skill: 0
+  skill: 1
   key: 2
   nextScene: Level1
 --- !u!1 &8026490964055630536
