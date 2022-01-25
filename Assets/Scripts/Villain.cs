@@ -36,6 +36,7 @@ public class Villain : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (geloCD > 0) geloCD -= Time.fixedDeltaTime;
+        if (ondaCD > 0) ondaCD -= Time.fixedDeltaTime;
     }
 
     public void vazio() { }
