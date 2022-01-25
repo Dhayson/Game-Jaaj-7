@@ -11,12 +11,12 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         trans = GetComponent<Transform>();
-        relativePosition = new Vector3(trans.position.x - follow.position.x, trans.position.y, trans.position.z);
+        relativePosition = new Vector3(trans.position.x - follow.position.x, 0, 0);
     }
 
     void FixedUpdate()
     {
         //make the camera follow the transform x axis.
-        trans.position = new Vector3(follow.position.x, 0, 0) + relativePosition;
+        trans.position = new Vector3(follow.position.x, trans.position.y, trans.position.z) + relativePosition;
     }
 }
