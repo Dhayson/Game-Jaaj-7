@@ -49,7 +49,7 @@ public static class HabilitySet
     public static Hability S;
 }
 
-public enum Hability { vazio, gelo }
+public enum Hability { vazio, gelo, raio, onda, espinho }
 public enum Key { Q, W, E, R, A, S }
 
 public static class UniqueNumber

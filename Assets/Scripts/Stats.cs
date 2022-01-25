@@ -8,7 +8,9 @@ public class Stats : MonoBehaviour
     public float Health;
     public float InvulnerableTime;
     [SerializeField] private float InvulnerableTimeCD;
-    public float speedFactor = 1;
+    public float speedBase = 1;
+    public float speedMultiplier = 1;
+    public float speedFactor { get { return speedBase * speedMultiplier; } }
     public float jumpFactor = 1;
     private List<(Color, int)> colorQueue;
     public (Color, int) colorFactor
@@ -46,9 +48,9 @@ public class Stats : MonoBehaviour
             Health = float.NaN;
         }
 
-        if (float.IsNaN(speedFactor))
+        if (float.IsNaN(speedMultiplier))
         {
-            speedFactor = 1f;
+            speedMultiplier = 1f;
         }
         if (float.IsNaN(jumpFactor))
         {

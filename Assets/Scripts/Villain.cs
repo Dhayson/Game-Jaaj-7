@@ -9,6 +9,7 @@ public class Villain : MonoBehaviour
     [SerializeField] private Vector2 mousePos;
     private VillainControl control;
     [SerializeField] private GameObject ice;
+    [SerializeField] private GameObject wave;
 
     void Awake()
     {
@@ -17,6 +18,9 @@ public class Villain : MonoBehaviour
 
         var method = thisType.GetMethod(HabilitySet.E.ToString());
         control.Skills.E.started += ctx => method.Invoke(this, null);
+
+        var method2 = thisType.GetMethod(HabilitySet.W.ToString());
+        control.Skills.W.started += ctx => method2.Invoke(this, null);
         //syntax: control.Skills.Q.started += ctx => Method();
     }
     void Start()
@@ -24,6 +28,8 @@ public class Villain : MonoBehaviour
         control.Skills.Enable();
         geloCDOG = geloCD;
         geloCD = 0;
+        ondaCDOG = ondaCD;
+        ondaCD = 0;
     }
 
     void FixedUpdate()
@@ -42,6 +48,16 @@ public class Villain : MonoBehaviour
         {
             Instantiate(ice, mousePos, ice.transform.rotation);
             geloCD = geloCDOG;
+        }
+    }
+    public float ondaCD;
+    private float ondaCDOG;
+    public void onda()
+    {
+        if (ondaCD <= 0)
+        {
+            Instantiate(wave, mousePos, wave.transform.rotation);
+            ondaCD = ondaCDOG;
         }
     }
 }

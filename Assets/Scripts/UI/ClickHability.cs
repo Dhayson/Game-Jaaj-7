@@ -23,6 +23,18 @@ public class ClickHability : ClickImage
         {
             HabilitySet.E = skill;
         }
+        if (key == Key.W)
+        {
+            HabilitySet.W = skill;
+        }
+        if (key == Key.A)
+        {
+            HabilitySet.A = skill;
+        }
+        if (key == Key.R)
+        {
+            HabilitySet.R = skill;
+        }
         Debug.Log($"skill {skill} is in {key}");
         SceneManager.LoadScene(nextScene);
     }
