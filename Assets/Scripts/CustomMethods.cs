@@ -29,6 +29,14 @@ public static class Global
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         return Physics2D.Raycast(ray.origin, ray.direction);
     }
+    /// <summary>
+    /// Check if a Layer is contained in a LayerMask
+    /// </summary>
+    static public bool CompareLayer(int layer, LayerMask layermask)
+    {
+        //https://answers.unity.com/questions/50279/check-if-layer-is-in-layermask.html
+        return layermask == (layermask | (1 << layer));
+    }
 }
 
 public static class HabilitySet
