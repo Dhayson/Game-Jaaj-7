@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
@@ -8,8 +9,23 @@ public class Stats : MonoBehaviour
     public float InvulnerableTime;
     [SerializeField] private float InvulnerableTimeCD;
     public float speedFactor = 1;
-    public float jumpFactor;
-    public Color colorFactor = Color.white;
+    public float jumpFactor = 1;
+    private List<(Color, int)> colorQueue;
+    public (Color, int) colorFactor
+    {
+        get
+        {
+            return colorQueue.Last();
+        }
+        set
+        {
+            colorQueue.Add(value);
+        }
+    }
+    public void RemoveColor(int identifier)
+    {
+        colorQueue.RemoveAll(cor => cor.Item2 == identifier);
+    }
     private SpriteRenderer spriteRender;
 
     // Start is called before the first frame update
@@ -17,6 +33,8 @@ public class Stats : MonoBehaviour
     {
         InvulnerableTimeCD = InvulnerableTime;
         spriteRender = GetComponentInChildren<SpriteRenderer>();
+        colorQueue = new();
+        colorQueue.Add((Color.white, UniqueNumber.Next()));
     }
 
     // Update is called once per frame
@@ -36,7 +54,7 @@ public class Stats : MonoBehaviour
         {
             jumpFactor = 1f;
         }
-        spriteRender.color = colorFactor;
+        spriteRender.color = colorQueue.Last().Item1;
     }
 
     public void FixedUpdate()

@@ -49,9 +49,10 @@ public class IceContact : MonoBehaviour
     {
         float slow = 0.5f - 0.02f * intensity;
         stats.speedFactor *= slow;
-        stats.colorFactor = Color.blue;
+        int iden = UniqueNumber.Next();
+        stats.colorFactor = (Color.blue, iden);
         yield return new WaitForSeconds(intensity);
         stats.speedFactor /= slow;
-        stats.colorFactor = Color.white;
+        stats.RemoveColor(iden);
     }
 }
