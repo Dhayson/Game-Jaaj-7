@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026490962429066145, guid: 87016847a12647d89b03450aae7a7bc3, type: 3}
       propertyPath: nextScene
-      value: Level1
+      value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 8026490962429066156, guid: 87016847a12647d89b03450aae7a7bc3, type: 3}
       propertyPath: m_Sprite
