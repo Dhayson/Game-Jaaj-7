@@ -6,8 +6,14 @@ public class IceContact : MonoBehaviour
 {
     [SerializeField] private float fallTime = 0;
     [SerializeField] private LayerMask Level;
-
     [SerializeField] private LayerMask Nemesis;
+    private float Resist
+    {
+        get
+        {
+            return Resistance.ResistanceNow.gelo;
+        }
+    }
 
     void FixedUpdate()
     {
@@ -18,15 +24,21 @@ public class IceContact : MonoBehaviour
     {
         if (Global.CompareLayer(other.gameObject.layer, Level))
         {
+            //try to detect nemesis near
             var contact = other.gameObject.GetComponent<Collider2D>().ClosestPoint(transform.position);
             Collider2D nemesisCol = Physics2D.OverlapCircle(contact, 2f, Nemesis);
+
             if (nemesisCol is not null)
             {
                 GameObject nemesis = nemesisCol.gameObject;
-                Debug.Log($"explosion {nemesis}");
                 Stats stats = nemesis.GetComponent<Stats>();
-                stats.Damage(7 + (int)(fallTime * 7));
+
+                int damage = (int)(6 * (fallTime + 1) / Resist);
+                stats.Damage(damage);
                 CoroutineManager.Instance.StartCoroutine(slowTarget(stats, 1.5f));
+
+                Debug.Log(Resist);
+                Resistance.ResistanceStore.gelo += 0.1f;
             }
             else
             {
@@ -37,21 +49,29 @@ public class IceContact : MonoBehaviour
         else if (Global.CompareLayer(other.gameObject.layer, Nemesis))
         {
             GameObject nemesis = other.gameObject;
-            Debug.Log($"hit {nemesis}");
             Stats stats = nemesis.GetComponent<Stats>();
-            stats.Damage(10 + (int)(fallTime * 10));
+
+            int damage = (int)(10 * (fallTime + 1) / Resist);
+            stats.Damage(damage);
             CoroutineManager.Instance.StartCoroutine(slowTarget(stats, 2));
+
+            Debug.Log(Resist);
+            Resistance.ResistanceStore.gelo += 0.08f;
             Destroy(gameObject);
         }
     }
 
     IEnumerator slowTarget(Stats stats, float intensity)
     {
-        float slow = 0.5f - 0.02f * intensity;
+        var intensity2 = intensity / Resist;
+
+        float slow = 0.5f - 0.02f * intensity2;
         stats.speedMultiplier *= slow;
         int iden = UniqueNumber.Next();
         stats.colorFactor = (Color.blue, iden);
-        yield return new WaitForSeconds(intensity);
+
+        yield return new WaitForSeconds(intensity2);
+
         stats.speedMultiplier /= slow;
         stats.RemoveColor(iden);
     }

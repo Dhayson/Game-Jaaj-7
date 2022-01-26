@@ -38,7 +38,7 @@ public class Stats : MonoBehaviour
         InvulnerableTimeCD = InvulnerableTime;
         spriteRender = GetComponentInChildren<SpriteRenderer>();
         colorQueue = new();
-        colorQueue.Add((Color.white, UniqueNumber.Next()));
+        colorQueue.Add((Color.white, 666));
         startPos = transform.position;
     }
 
@@ -48,7 +48,6 @@ public class Stats : MonoBehaviour
         if (Health <= 0.0f)
         {
             Kill();
-            Health = float.NaN;
         }
 
         if (float.IsNaN(speedMultiplier))
@@ -90,5 +89,6 @@ public class Stats : MonoBehaviour
         {
             reset.BroadcastMessage("AutoReset");
         }
+        Resistance.ResistanceNow = Resistance.ResistanceStore;
     }
 }
