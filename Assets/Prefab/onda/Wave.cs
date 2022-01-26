@@ -74,7 +74,7 @@ public class Wave : MonoBehaviour
         {
             GameObject nemesis = other.gameObject;
             Stats stats = nemesis.GetComponent<Stats>();
-            stats.speedBase -= rig.velocity.x / (4 * Resist);
+            stats.speedBase -= rig.velocity.x / (5 * Resist);
             onNemesisContact = false;
         }
     }
