@@ -557,6 +557,14 @@ PrefabInstance:
       propertyPath: nextScene
       value: SelectSkill2
       objectReference: {fileID: 0}
+    - target: {fileID: 3528914433957788975, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
+      propertyPath: reseters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528914433957788975, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
+      propertyPath: reseters.Array.data[0]
+      value: 
+      objectReference: {fileID: 6408200570548770884}
     - target: {fileID: 5851284740404976966, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -917,6 +925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 311d5d6ec46334c33a32a67dbc487c3c, type: 3}
+--- !u!1 &6408200570548770884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6408200570581459771, guid: 311d5d6ec46334c33a32a67dbc487c3c, type: 3}
+  m_PrefabInstance: {fileID: 6408200570548770883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7551152721468326009
 PrefabInstance:
   m_ObjectHideFlags: 0

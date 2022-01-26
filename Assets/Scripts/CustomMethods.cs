@@ -37,6 +37,7 @@ public static class Global
         //https://answers.unity.com/questions/50279/check-if-layer-is-in-layermask.html
         return layermask == (layermask | (1 << layer));
     }
+    public static List<Coroutine> EvilRoutine = new();
 }
 
 public static class HabilitySet

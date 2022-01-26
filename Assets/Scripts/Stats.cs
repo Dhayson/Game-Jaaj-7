@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+    [SerializeField] private GameObject[] reseters;
     public float Health;
     public float InvulnerableTime;
     [SerializeField] private float InvulnerableTimeCD;
@@ -13,6 +14,7 @@ public class Stats : MonoBehaviour
     public float speedFactor { get { return speedBase * speedMultiplier; } }
     public float jumpFactor = 1;
     private List<(Color, int)> colorQueue;
+    private Vector3 startPos;
     public (Color, int) colorFactor
     {
         get
@@ -37,6 +39,7 @@ public class Stats : MonoBehaviour
         spriteRender = GetComponentInChildren<SpriteRenderer>();
         colorQueue = new();
         colorQueue.Add((Color.white, UniqueNumber.Next()));
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -75,7 +78,17 @@ public class Stats : MonoBehaviour
     public void Kill()
     {
         Debug.Log($"kill {gameObject}");
-        //uncomment to inactivate objects when they die.
-        //gameObject.SetActive(false);
+        transform.position = startPos;
+        Health = 100;
+        foreach (var evil in Global.EvilRoutine)
+        {
+            StopCoroutine(evil);
+        }
+        var camera = Camera.main.GetComponent<CameraScript>();
+        StartCoroutine(camera.Restart());
+        foreach (var reset in reseters)
+        {
+            reset.BroadcastMessage("AutoReset");
+        }
     }
 }

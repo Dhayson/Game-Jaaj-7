@@ -14,7 +14,7 @@ public class SlideCamera : MonoBehaviour
         if (Global.CompareLayer(other.gameObject.layer, Nemesis) && !started)
         {
             started = true;
-            StartCoroutine(Move());
+            Global.EvilRoutine.Add(StartCoroutine(Move()));
         }
     }
 
@@ -27,5 +27,12 @@ public class SlideCamera : MonoBehaviour
             camera.transform.position += (Vector3)cameraDelta * (Time.fixedDeltaTime / duration);
             yield return new WaitForFixedUpdate();
         }
+        started = false;
+    }
+
+    public void AutoReset()
+    {
+        started = false;
+        Debug.Log($"restarted {gameObject}");
     }
 }
