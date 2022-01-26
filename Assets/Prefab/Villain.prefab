@@ -46,6 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePos: {x: 0, y: 0}
   ice: {fileID: 479741064203651207, guid: 4cf77bc25c2ece5c1befa61f5ed6a56e, type: 3}
-  wave: {fileID: 479741064203651207, guid: e3b9232b01f7a392fab7ddfacb2e44ee, type: 3}
   geloCD: 3
+  wave: {fileID: 479741064203651207, guid: e3b9232b01f7a392fab7ddfacb2e44ee, type: 3}
   ondaCD: 1.2
+  spike: {fileID: 479741064203651207, guid: b6c284afbf7867979863cd4b770c4694, type: 3}
+  espinhoCD: 3
+  E_CD: 0
+  W_CD: 0
+  R_CD: 0
