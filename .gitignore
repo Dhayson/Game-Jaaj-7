@@ -534,3 +534,6 @@ Assets/NuGet.meta
 Assets/NuGet.config.meta
 Assets/NuGet.config
 !Assets/Packages/*
+
+build*
+Assets/TextMesh Pro

@@ -5,6 +5,7 @@ using UnityEngine;
 public class NemesisMove : MonoBehaviour
 {
     private Rigidbody2D rig;
+    private Stats stats;
     public float vel;
     public float jumpForce;
     [SerializeField] LayerMask level;
@@ -15,12 +16,13 @@ public class NemesisMove : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        stats = GetComponent<Stats>();
         jumpRoutines = new();
     }
 
     void FixedUpdate()
     {
-        if (groundContact) rig.velocity = new Vector2(vel, rig.velocity.y);
+        rig.velocity = new Vector2(vel * stats.speedFactor, rig.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +55,6 @@ public class NemesisMove : MonoBehaviour
     {
         yield return new WaitUntil(() => groundContact);
         rig.velocity = new Vector2(rig.velocity.x, 0);
-        rig.AddForce(new Vector2(0, jumpForce));
+        rig.AddForce(new Vector2(0, jumpForce * stats.jumpFactor));
     }
 }

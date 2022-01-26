@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2731388791182610591}
   - component: {fileID: 749615699402040813}
   - component: {fileID: 8308608744314451680}
+  - component: {fileID: 3528914433957788975}
   m_Layer: 0
   m_Name: Nemesis
   m_TagString: Untagged
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33539be9c957ae081aaff499c85e4ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 3
+  vel: 4
   jumpForce: 500
   level:
     serializedVersion: 2
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c925a3766752617812f659e8e2d0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: 
 --- !u!114 &8308608744314451680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d6e308ba7013e019fda7e93af91a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3528914433957788975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905647073399597817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279a7f5f95adb2c8686e03a3acde0a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  InvulnerableTime: 0
+  InvulnerableTimeCD: 0
+  speedFactor: 1
+  jumpFactor: 1
+  colorFactor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6217688255013380960
 GameObject:
   m_ObjectHideFlags: 0
