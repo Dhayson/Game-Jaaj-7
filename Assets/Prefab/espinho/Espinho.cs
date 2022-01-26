@@ -46,8 +46,12 @@ public class Espinho : MonoBehaviour
         int iden = UniqueNumber.Next();
         stats.colorFactor = (Color.red, iden);
 
-        if (fallTime >= 1)
-            rig.AddForce(new Vector2(0, -force / Resist));
+
+        if (fallTime >= 0.4f)
+        {
+            var resist2 = (Resist - 1) / 2 + 1;
+            rig.AddForce(new Vector2(0, -force / resist2));
+        }
 
         yield return new WaitForSeconds(time);
 
