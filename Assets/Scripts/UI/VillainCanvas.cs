@@ -36,15 +36,15 @@ public class VillainCanvas : MonoBehaviour
     void Update()
     {
         if (E.activeSelf)
-            Ecd.text = $"{Mathf.CeilToInt(villain.E_CD)}s";
+            Ecd.text = $"{Mathf.CeilToInt(villain.E_CD.value)}s";
 
         if (W.activeSelf)
-            Wcd.text = $"{Mathf.CeilToInt(villain.W_CD)}s";
+            Wcd.text = $"{Mathf.CeilToInt(villain.W_CD.value)}s";
 
         if (R.activeSelf)
-            Rcd.text = $"{Mathf.CeilToInt(villain.R_CD)}s";
+            Rcd.text = $"{Mathf.CeilToInt(villain.R_CD.value)}s";
 
         if (A.activeSelf)
-            Acd.text = $"{Mathf.CeilToInt(villain.A_CD)}s";
+            Acd.text = $"{Mathf.CeilToInt(villain.A_CD.value)}s";
     }
 }
