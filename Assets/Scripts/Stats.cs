@@ -14,7 +14,7 @@ public class Stats : MonoBehaviour
     public float speedFactor { get { return speedBase * speedMultiplier; } }
     public float jumpFactor = 1;
     public bool shock = false;
-    public bool superShock = false;
+    public bool superShock { get { return shock && wet; } }
     public bool wet = false;
     private List<(Color, int)> colorQueue;
     private Vector3 startPos;

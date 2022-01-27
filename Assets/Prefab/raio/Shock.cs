@@ -17,6 +17,12 @@ public class Shock : MonoBehaviour
             return Resistance.ResistanceNow.raio;
         }
     }
+    private float Corrected(float res, float max)
+    {
+        //A function that increases with more resistance, but the limit is the max value at infinity.
+        return (-(max - 1) / res) + max;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +72,7 @@ public class Shock : MonoBehaviour
 
             StartCoroutine(NormalShock(rig, stats));
 
-            Resistance.ResistanceStore.raio += 0.18f;
+            Resistance.ResistanceStore.raio += 0.16f;
         }
     }
 
@@ -74,7 +80,7 @@ public class Shock : MonoBehaviour
     {
         Vector2 vel;
         Vector2 rigVel = rig.velocity;
-        vel = rigVel * (0.5f * Resist);
+        vel = rigVel * (0.5f * Corrected(Resist, 2));
 
         allRigs.Add((rig, vel));
         StartCoroutine(SuperShock(rig, stats, rigVel));
@@ -92,10 +98,10 @@ public class Shock : MonoBehaviour
 
         super.SetActive(true);
 
-        int damage = (int)(7 / Resist);
+        int damage = (int)(10 / (Resist * Resistance.ResistanceNow.onda));
         stats.Damage(damage);
 
-        Vector2 vel = rigVel * (0.1f * Resist * Resistance.ResistanceNow.onda);
+        Vector2 vel = rigVel * (0.1f * Corrected(Resist * Resistance.ResistanceNow.onda, 10));
         for (int i = 0; i < allRigs.Count; i++)
         {
             if (ReferenceEquals(rig, allRigs[i].Item1))
