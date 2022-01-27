@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Villain : MonoBehaviour
 {
+    [SerializeField] private LayerMask Entity;
+    [SerializeField] private LayerMask Nemesis;
     [SerializeField] private Vector2 mousePos;
     private VillainControl control;
     [SerializeField] private GameObject ice;
@@ -16,6 +18,8 @@ public class Villain : MonoBehaviour
     public float espinhoCD;
     [SerializeField] private GameObject shock;
     public float raioCD;
+
+    public float gravidadeCD;
 
     public Float2 E_CD; private Float2 E_CDog;
     public Float2 W_CD; private Float2 W_CDog;
@@ -99,6 +103,43 @@ public class Villain : MonoBehaviour
         {
             Instantiate(shock, mousePos, shock.transform.rotation);
             cd.value = cd_og.value;
+        }
+    }
+
+    public void gravidade(Float2 cd, Float2 cd_og)
+    {
+        if (cd.value <= 0)
+        {
+            var cols = Physics2D.OverlapCircleAll(mousePos, 1f);
+            foreach (var col in cols)
+            {
+                if (Global.CompareLayer(col.gameObject.layer, Entity))
+                {
+                    cd.value = cd_og.value;
+                    StartCoroutine(Gravity(col.gameObject));
+
+                    IEnumerator Gravity(GameObject entity)
+                    {
+                        bool hasRig = entity.TryGetComponent(out Rigidbody2D rig);
+                        if (hasRig)
+                        {
+                            rig.gravityScale *= -1;
+                            rig.rotation += 180;
+                        }
+                        if (Global.CompareLayer(entity.layer, Nemesis))
+                        {
+                            Resistance.ResistanceStore.gravidade += 0.1f;
+                            Debug.Log("uou");
+                        }
+                        yield return new WaitForSeconds(0.7f / Resistance.ResistanceNow.gravidade);
+                        if (hasRig)
+                        {
+                            rig.gravityScale *= -1;
+                            rig.rotation += 180;
+                        }
+                    }
+                }
+            }
         }
     }
 }

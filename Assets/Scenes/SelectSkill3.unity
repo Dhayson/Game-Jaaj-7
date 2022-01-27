@@ -318,5 +318,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillCanvas 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2511758256507499075, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: nextScene
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637849472191071709, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 75f68405b52e474a89a306fc3e56083e, type: 3}
+    - target: {fileID: 8832931984642369496, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 184.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832931984642369496, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 375.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832931984642369496, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -660.427
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832931984642369496, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -48.746628
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039354675469863936, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}
+      propertyPath: m_Name
+      value: Gravidade
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e792bfa0586f26b3eadbe88fb7d086ce, type: 3}

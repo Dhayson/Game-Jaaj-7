@@ -50,7 +50,7 @@ public static class HabilitySet
     public static Hability S;
 }
 
-public enum Hability { vazio, gelo, raio, onda, espinho }
+public enum Hability { vazio, gelo, raio, onda, espinho, gravidade, lesma, fogo }
 public enum Key { Q, W, E, R, A, S }
 
 public static class UniqueNumber
@@ -84,11 +84,13 @@ public struct Resistance
         raio = 1;
         onda = 1;
         espinho = 1;
+        gravidade = 1;
     }
     public float gelo;
     public float raio;
     public float onda;
     public float espinho;
+    public float gravidade;
     public static Resistance ResistanceNow = new(true);
     public static Resistance ResistanceStore = new(true);
 }

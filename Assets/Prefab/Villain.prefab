@@ -334,6 +334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383fab094785ee76586f0a29fd5342f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Entity:
+    serializedVersion: 2
+    m_Bits: 128
+  Nemesis:
+    serializedVersion: 2
+    m_Bits: 128
   mousePos: {x: 0, y: 0}
   ice: {fileID: 479741064203651207, guid: 4cf77bc25c2ece5c1befa61f5ed6a56e, type: 3}
   geloCD: 3
@@ -343,10 +349,7 @@ MonoBehaviour:
   espinhoCD: 3
   shock: {fileID: 8542299224775205707, guid: e127acde14d9691af8c6908f534c6678, type: 3}
   raioCD: 5
-  E_CD: 0
-  W_CD: 0
-  R_CD: 0
-  A_CD: 0
+  gravidadeCD: 6
 --- !u!1 &3795758016122061086
 GameObject:
   m_ObjectHideFlags: 0
