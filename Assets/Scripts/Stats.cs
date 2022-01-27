@@ -13,6 +13,9 @@ public class Stats : MonoBehaviour
     public float speedMultiplier = 1;
     public float speedFactor { get { return speedBase * speedMultiplier; } }
     public float jumpFactor = 1;
+    public bool shock = false;
+    public bool superShock = false;
+    public bool wet = false;
     private List<(Color, int)> colorQueue;
     private Vector3 startPos;
     public (Color, int) colorFactor
@@ -38,7 +41,7 @@ public class Stats : MonoBehaviour
         InvulnerableTimeCD = InvulnerableTime;
         spriteRender = GetComponentInChildren<SpriteRenderer>();
         colorQueue = new();
-        colorQueue.Add((Color.white, UniqueNumber.Next()));
+        colorQueue.Add((Color.white, 666));
         startPos = transform.position;
     }
 
@@ -48,7 +51,6 @@ public class Stats : MonoBehaviour
         if (Health <= 0.0f)
         {
             Kill();
-            Health = float.NaN;
         }
 
         if (float.IsNaN(speedMultiplier))
@@ -90,5 +92,6 @@ public class Stats : MonoBehaviour
         {
             reset.BroadcastMessage("AutoReset");
         }
+        Resistance.ResistanceNow = Resistance.ResistanceStore;
     }
 }

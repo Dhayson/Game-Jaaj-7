@@ -22,7 +22,8 @@ public class NemesisMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        rig.velocity = new Vector2(vel * stats.speedFactor, rig.velocity.y);
+        if (!stats.shock)
+            rig.velocity = new Vector2(vel * stats.speedFactor, rig.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +54,7 @@ public class NemesisMove : MonoBehaviour
 
     public IEnumerator Jump()
     {
-        yield return new WaitUntil(() => groundContact);
+        yield return new WaitUntil(() => groundContact || !stats.shock);
         rig.velocity = new Vector2(rig.velocity.x, 0);
         rig.AddForce(new Vector2(0, jumpForce * stats.jumpFactor));
     }

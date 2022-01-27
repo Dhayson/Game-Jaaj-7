@@ -11,6 +11,13 @@ public class Wave : MonoBehaviour
     [SerializeField] float acceleration;
     private bool isShrinking;
     private bool onNemesisContact;
+    private float Resist
+    {
+        get
+        {
+            return Resistance.ResistanceNow.onda;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +46,19 @@ public class Wave : MonoBehaviour
         if (Global.CompareLayer(other.gameObject.layer, Nemesis))
         {
             GameObject nemesis = other.gameObject;
-            Debug.Log($"hit {nemesis}");
             Stats stats = nemesis.GetComponent<Stats>();
-            stats.speedBase += rig.velocity.x / 5;
+
+            stats.speedBase += rig.velocity.x / (5 * Resist);
+
+            stats.wet = true;
+            if (stats.shock)
+            {
+                stats.superShock = true;
+            }
+
+            Debug.Log(Resist);
+            Resistance.ResistanceStore.onda += 0.03f;
+
             onNemesisContact = true;
         }
     }
@@ -63,7 +80,10 @@ public class Wave : MonoBehaviour
         {
             GameObject nemesis = other.gameObject;
             Stats stats = nemesis.GetComponent<Stats>();
-            stats.speedBase -= rig.velocity.x / 5;
+            stats.speedBase -= rig.velocity.x / (5 * Resist);
+
+            stats.wet = false;
+            stats.superShock = false;
             onNemesisContact = false;
         }
     }

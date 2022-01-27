@@ -75,3 +75,21 @@ public static class UniqueNumber
     51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,
     64, 65, 66, 67, 68, 69 };
 }
+
+public struct Resistance
+{
+    public Resistance(bool init)
+    {
+        gelo = 1;
+        raio = 1;
+        onda = 1;
+        espinho = 1;
+    }
+    public float gelo;
+    public float raio;
+    public float onda;
+    public float espinho;
+    public static Resistance ResistanceNow = new(true);
+    public static Resistance ResistanceStore = new(true);
+}
+
