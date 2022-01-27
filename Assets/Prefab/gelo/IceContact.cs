@@ -37,7 +37,6 @@ public class IceContact : MonoBehaviour
                 stats.Damage(damage);
                 CoroutineManager.Instance.StartCoroutine(slowTarget(stats, 1.5f));
 
-                Debug.Log(Resist);
                 Resistance.ResistanceStore.gelo += 0.1f;
             }
             else
@@ -55,7 +54,6 @@ public class IceContact : MonoBehaviour
             stats.Damage(damage);
             CoroutineManager.Instance.StartCoroutine(slowTarget(stats, 2));
 
-            Debug.Log(Resist);
             Resistance.ResistanceStore.gelo += 0.08f;
             Destroy(gameObject);
         }
