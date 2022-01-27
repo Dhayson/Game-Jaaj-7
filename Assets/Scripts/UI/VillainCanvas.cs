@@ -12,6 +12,8 @@ public class VillainCanvas : MonoBehaviour
     private TextMeshProUGUI Wcd;
     [SerializeField] private GameObject R;
     private TextMeshProUGUI Rcd;
+    [SerializeField] private GameObject A;
+    private TextMeshProUGUI Acd;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,9 @@ public class VillainCanvas : MonoBehaviour
 
         R.SetActive(HabilitySet.R != Hability.vazio);
         Rcd = R.GetComponentInChildren<TextMeshProUGUI>();
+
+        A.SetActive(HabilitySet.A != Hability.vazio);
+        Acd = A.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -38,5 +43,8 @@ public class VillainCanvas : MonoBehaviour
 
         if (R.activeSelf)
             Rcd.text = $"{Mathf.CeilToInt(villain.R_CD)}s";
+
+        if (A.activeSelf)
+            Acd.text = $"{Mathf.CeilToInt(villain.A_CD)}s";
     }
 }

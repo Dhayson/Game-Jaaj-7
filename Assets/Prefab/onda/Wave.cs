@@ -50,6 +50,12 @@ public class Wave : MonoBehaviour
 
             stats.speedBase += rig.velocity.x / (5 * Resist);
 
+            stats.wet = true;
+            if (stats.shock)
+            {
+                stats.superShock = true;
+            }
+
             Debug.Log(Resist);
             Resistance.ResistanceStore.onda += 0.03f;
 
@@ -75,6 +81,9 @@ public class Wave : MonoBehaviour
             GameObject nemesis = other.gameObject;
             Stats stats = nemesis.GetComponent<Stats>();
             stats.speedBase -= rig.velocity.x / (5 * Resist);
+
+            stats.wet = false;
+            stats.superShock = false;
             onNemesisContact = false;
         }
     }
