@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Transform follow;
     private Transform trans;
     private Vector3 relativePosition;
-    private bool isFollowing = true;
+    public bool isFollowing = true;
     private Vector3 targetPosition;
 
     void Start()
