@@ -85,12 +85,14 @@ public struct Resistance
         onda = 1;
         espinho = 1;
         gravidade = 1;
+        fogo = 1;
     }
     public float gelo;
     public float raio;
     public float onda;
     public float espinho;
     public float gravidade;
+    public float fogo;
     public static Resistance ResistanceNow = new(true);
     public static Resistance ResistanceStore = new(true);
 }

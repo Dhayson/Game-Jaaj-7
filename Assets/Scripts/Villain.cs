@@ -18,8 +18,9 @@ public class Villain : MonoBehaviour
     public float espinhoCD;
     [SerializeField] private GameObject shock;
     public float raioCD;
-
     public float gravidadeCD;
+    [SerializeField] private GameObject fire;
+    public float fogoCD;
 
     public Float2 E_CD; private Float2 E_CDog;
     public Float2 W_CD; private Float2 W_CDog;
@@ -140,6 +141,15 @@ public class Villain : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void fogo(Float2 cd, Float2 cd_og)
+    {
+        if (cd.value <= 0)
+        {
+            Instantiate(fire, mousePos, shock.transform.rotation);
+            cd.value = cd_og.value;
         }
     }
 }

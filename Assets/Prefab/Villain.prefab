@@ -350,6 +350,8 @@ MonoBehaviour:
   shock: {fileID: 8542299224775205707, guid: e127acde14d9691af8c6908f534c6678, type: 3}
   raioCD: 5
   gravidadeCD: 6
+  fire: {fileID: 7296216256018960288, guid: d2517ddfbebebdd61945f51eac5dc101, type: 3}
+  fogoCD: 2.5
 --- !u!1 &3795758016122061086
 GameObject:
   m_ObjectHideFlags: 0
