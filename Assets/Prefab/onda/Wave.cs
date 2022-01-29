@@ -6,11 +6,11 @@ public class Wave : MonoBehaviour
 {
     private Rigidbody2D rig;
     [SerializeField] private LayerMask Level;
-    [SerializeField] private LayerMask Nemesis;
+    [SerializeField] private LayerMask Entity;
     [SerializeField] float velocity;
     [SerializeField] float acceleration;
     private bool isShrinking;
-    private bool onNemesisContact;
+    private bool onEntityContact;
     private float Resist
     {
         get
@@ -37,13 +37,13 @@ public class Wave : MonoBehaviour
         {
             transform.localScale *= 0.8f;
         }
-        if (!onNemesisContact)
+        if (!onEntityContact)
             rig.velocity += new Vector2(-acceleration * Time.fixedDeltaTime, 0);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (Global.CompareLayer(other.gameObject.layer, Nemesis))
+        if (Global.CompareLayer(other.gameObject.layer, Entity))
         {
             GameObject nemesis = other.gameObject;
             Stats stats = nemesis.GetComponent<Stats>();
@@ -54,7 +54,7 @@ public class Wave : MonoBehaviour
 
             Resistance.ResistanceStore.onda += 0.03f;
 
-            onNemesisContact = true;
+            onEntityContact = true;
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -71,14 +71,14 @@ public class Wave : MonoBehaviour
             isShrinking = false;
         }
 
-        if (Global.CompareLayer(other.gameObject.layer, Nemesis))
+        if (Global.CompareLayer(other.gameObject.layer, Entity))
         {
             GameObject nemesis = other.gameObject;
             Stats stats = nemesis.GetComponent<Stats>();
             stats.speedBase -= rig.velocity.x / (5 * Resist);
 
             stats.wet = false;
-            onNemesisContact = false;
+            onEntityContact = false;
         }
     }
 }
