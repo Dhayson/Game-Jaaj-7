@@ -1371,10 +1371,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemesis
       objectReference: {fileID: 0}
-    - target: {fileID: 5905647073399597817, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
 --- !u!1001 &3266649101593976011

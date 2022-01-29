@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+    [SerializeField] bool isNemesis = false;
     [SerializeField] private GameObject[] reseters;
     public float Health;
     public float InvulnerableTime;
@@ -79,19 +80,26 @@ public class Stats : MonoBehaviour
     }
     public void Kill()
     {
-        Debug.Log($"kill {gameObject}");
-        transform.position = startPos;
-        Health = 100;
-        foreach (var evil in Global.EvilRoutine)
+        if (isNemesis)
         {
-            StopCoroutine(evil);
+            Debug.Log($"kill {gameObject}");
+            transform.position = startPos;
+            Health = 100;
+            foreach (var evil in Global.EvilRoutine)
+            {
+                StopCoroutine(evil);
+            }
+            var camera = Camera.main.GetComponent<CameraScript>();
+            StartCoroutine(camera.Restart());
+            foreach (var reset in reseters)
+            {
+                reset.BroadcastMessage("AutoReset");
+            }
+            Resistance.ResistanceNow = Resistance.ResistanceStore;
         }
-        var camera = Camera.main.GetComponent<CameraScript>();
-        StartCoroutine(camera.Restart());
-        foreach (var reset in reseters)
+        else
         {
-            reset.BroadcastMessage("AutoReset");
+            Destroy(gameObject);
         }
-        Resistance.ResistanceNow = Resistance.ResistanceStore;
     }
 }

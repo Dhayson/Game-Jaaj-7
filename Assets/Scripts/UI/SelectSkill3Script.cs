@@ -10,22 +10,18 @@ public class SelectSkill3Script : MonoBehaviour
     void Start()
     {
         display = GetComponentsInChildren<Image>();
-        for (int i = 0; i < display.Length; i++)
-        {
-            Image image = display[i];
-            Debug.Log($"{image.gameObject} {i}");
-        }
+
         if (HabilitySet.A != Hability.vazio)
         {
             display[0].gameObject.SetActive(false);
         }
         else if (HabilitySet.W != Hability.vazio)
         {
-            display[2].gameObject.SetActive(false);
+            display[4].gameObject.SetActive(false);
         }
         else if (HabilitySet.R != Hability.vazio)
         {
-            display[4].gameObject.SetActive(false);
+            display[2].gameObject.SetActive(false);
         }
     }
 

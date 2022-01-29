@@ -336,10 +336,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entity:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   Nemesis:
     serializedVersion: 2
     m_Bits: 128
+  Level:
+    serializedVersion: 2
+    m_Bits: 64
   mousePos: {x: 0, y: 0}
   ice: {fileID: 479741064203651207, guid: 4cf77bc25c2ece5c1befa61f5ed6a56e, type: 3}
   geloCD: 3
@@ -352,6 +355,8 @@ MonoBehaviour:
   gravidadeCD: 6
   fire: {fileID: 7296216256018960288, guid: d2517ddfbebebdd61945f51eac5dc101, type: 3}
   fogoCD: 2.5
+  slug: {fileID: 7144413922332873694, guid: 214525f3784f0e851b48224ef16429b1, type: 3}
+  lesmaCD: 4
 --- !u!1 &3795758016122061086
 GameObject:
   m_ObjectHideFlags: 0

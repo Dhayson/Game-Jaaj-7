@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a96cf59ca6576c2e91f16d77afbf894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nemesis:
+  Entity:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
 --- !u!61 &1660595123302536485
 BoxCollider2D:
   m_ObjectHideFlags: 0

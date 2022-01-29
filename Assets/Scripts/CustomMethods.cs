@@ -86,6 +86,7 @@ public struct Resistance
         espinho = 1;
         gravidade = 1;
         fogo = 1;
+        lesma = 1;
     }
     public float gelo;
     public float raio;
@@ -93,6 +94,7 @@ public struct Resistance
     public float espinho;
     public float gravidade;
     public float fogo;
+    public float lesma;
     public static Resistance ResistanceNow = new(true);
     public static Resistance ResistanceStore = new(true);
 }
