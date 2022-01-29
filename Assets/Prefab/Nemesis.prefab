@@ -171,6 +171,8 @@ MonoBehaviour:
   speedBase: 1
   speedMultiplier: 1
   jumpFactor: 1
+  shock: 0
+  wet: 0
 --- !u!1 &6217688255013380960
 GameObject:
   m_ObjectHideFlags: 0
