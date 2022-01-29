@@ -72,7 +72,7 @@ public class Shock : MonoBehaviour
 
             StartCoroutine(NormalShock(rig, stats));
 
-            Resistance.ResistanceStore.raio += 0.16f;
+            Resistance.ResistanceStore.raio += 0.12f;
         }
     }
 

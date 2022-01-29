@@ -47,14 +47,21 @@ public class fire : MonoBehaviour
 
             int damage;
             if (!revert)
-                damage = (int)(6 / Resist);
+            {
+                damage = (int)(8 / Resist);
+                Resistance.ResistanceStore.fogo += 0.05f;
+            }
             else if (stats.wet)
+            {
                 damage = 0;
+            }
             else
-                damage = (int)(12 / Resist);
+            {
+                damage = (int)(18 / Resist);
+                Resistance.ResistanceStore.fogo += 0.04f;
+            }
             stats.Damage(damage);
 
-            Resistance.ResistanceStore.fogo += 0.05f;
         }
     }
 }
