@@ -9,6 +9,7 @@ public class Stats : MonoBehaviour
     [SerializeField] bool isNemesis = false;
     [SerializeField] private GameObject[] reseters;
     public float Health;
+    private float maxHealth;
     public float InvulnerableTime;
     [SerializeField] private float InvulnerableTimeCD;
     public float drag = 0;
@@ -44,6 +45,7 @@ public class Stats : MonoBehaviour
         colorQueue = new();
         colorQueue.Add((Color.white, 666));
         startPos = transform.position;
+        maxHealth = Health;
     }
 
     // Update is called once per frame
@@ -84,7 +86,7 @@ public class Stats : MonoBehaviour
         {
             Debug.Log($"kill {gameObject}");
             transform.position = startPos;
-            Health = 100;
+            Health = maxHealth;
             foreach (var evil in Global.EvilRoutine)
             {
                 StopCoroutine(evil);
