@@ -10,9 +10,8 @@ public class Stats : MonoBehaviour
     public float Health;
     public float InvulnerableTime;
     [SerializeField] private float InvulnerableTimeCD;
-    public float speedBase = 1;
+    public float drag = 0;
     public float speedMultiplier = 1;
-    public float speedFactor { get { return speedBase * speedMultiplier; } }
     public float jumpFactor = 1;
     public bool shock = false;
     public bool superShock { get { return shock && wet; } }

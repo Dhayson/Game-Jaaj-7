@@ -35,7 +35,7 @@ public class NemesisMove : MonoBehaviour
     void FixedUpdate()
     {
         if (!stats.shock)
-            rig.velocity = new Vector2(vel * stats.speedFactor, rig.velocity.y);
+            rig.velocity = new Vector2(vel * stats.speedMultiplier + stats.drag, rig.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)
