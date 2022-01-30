@@ -1309,7 +1309,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 749615699402040813, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
       propertyPath: nextScene
-      value: SelectSkill
+      value: SelectSkill4
       objectReference: {fileID: 0}
     - target: {fileID: 3528914433957788975, guid: 84a110f5e466e9b91b735b039a741000, type: 3}
       propertyPath: reseters.Array.size
