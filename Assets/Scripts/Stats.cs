@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
@@ -95,6 +96,11 @@ public class Stats : MonoBehaviour
                 reset.BroadcastMessage("AutoReset");
             }
             Resistance.ResistanceNow = Resistance.ResistanceStore;
+            Global.LifeCount -= 1;
+            if (Global.LifeCount < 0)
+            {
+                SceneManager.LoadScene("GameEnd");
+            }
         }
         else
         {

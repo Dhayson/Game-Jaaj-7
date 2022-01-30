@@ -38,6 +38,7 @@ public static class Global
         return layermask == (layermask | (1 << layer));
     }
     public static List<Coroutine> EvilRoutine = new();
+    public static float LifeCount = 20;
 }
 
 public static class HabilitySet

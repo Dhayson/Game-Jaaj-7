@@ -14,6 +14,7 @@ public class VillainCanvas : MonoBehaviour
     private TextMeshProUGUI Rcd;
     [SerializeField] private GameObject A;
     private TextMeshProUGUI Acd;
+    [SerializeField] TextMeshProUGUI life;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +47,6 @@ public class VillainCanvas : MonoBehaviour
 
         if (A.activeSelf)
             Acd.text = $"{Mathf.CeilToInt(villain.A_CD.value)}s";
+        life.text = $"X{Global.LifeCount}";
     }
 }
