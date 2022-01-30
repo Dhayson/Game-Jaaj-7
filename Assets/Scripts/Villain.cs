@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 public class Villain : MonoBehaviour
@@ -115,27 +116,36 @@ public class Villain : MonoBehaviour
         if (cd.value <= 0)
         {
             var cols = Physics2D.OverlapCircleAll(mousePos, 1f);
+            List<GameObject> games = new();
             foreach (var col in cols)
             {
-                if (Global.CompareLayer(col.gameObject.layer, Entity))
+                games.Add(col.gameObject);
+            }
+            games = games.Distinct().ToList();
+            foreach (var game in games)
+            {
+                if (Global.CompareLayer(game.layer, Entity))
                 {
-                    cd.value = cd_og.value;
-                    StartCoroutine(Gravity(col.gameObject));
+                    StartCoroutine(Gravity(game));
 
                     IEnumerator Gravity(GameObject entity)
                     {
-                        bool hasRig = entity.TryGetComponent(out Rigidbody2D rig);
-                        if (hasRig)
+                        if (entity.TryGetComponent(out Rigidbody2D rig))
                         {
                             rig.gravityScale *= -1;
                             rig.rotation += 180;
                         }
                         if (Global.CompareLayer(entity.layer, Nemesis))
                         {
+                            cd.value = cd_og.value;
                             Resistance.ResistanceStore.gravidade += 0.1f;
+                            yield return new WaitForSeconds(0.7f / Resistance.ResistanceNow.gravidade);
                         }
-                        yield return new WaitForSeconds(0.7f / Resistance.ResistanceNow.gravidade);
-                        if (hasRig)
+                        else
+                        {
+                            yield return new WaitForSeconds(0.7f);
+                        }
+                        if (entity.TryGetComponent(out rig))
                         {
                             rig.gravityScale *= -1;
                             rig.rotation += 180;
