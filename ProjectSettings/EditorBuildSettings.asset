@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectSkill4.unity
     guid: d52aa8bbe1273364380137c26a98e2f0
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: e3599393606174498abab7090628133e
   m_configObjects: {}
