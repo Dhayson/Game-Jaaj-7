@@ -32,7 +32,6 @@ public class Espinho : MonoBehaviour
             int damage = (int)(2 + (fallTime * 4) / Resist);
             stats.Damage(damage);
 
-            Debug.Log(Resist);
             Resistance.ResistanceStore.espinho += 0.015f;
 
             CoroutineManager.Instance.StartCoroutine(Spike(nemesis, stats, 0.1f));

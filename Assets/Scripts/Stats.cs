@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
+    [SerializeField] bool isNemesis = false;
     [SerializeField] private GameObject[] reseters;
     public float Health;
     public float InvulnerableTime;
     [SerializeField] private float InvulnerableTimeCD;
-    public float speedBase = 1;
+    public float drag = 0;
     public float speedMultiplier = 1;
-    public float speedFactor { get { return speedBase * speedMultiplier; } }
     public float jumpFactor = 1;
     public bool shock = false;
-    public bool superShock = false;
+    public bool superShock { get { return shock && wet; } }
     public bool wet = false;
     private List<(Color, int)> colorQueue;
     private Vector3 startPos;
@@ -79,19 +80,31 @@ public class Stats : MonoBehaviour
     }
     public void Kill()
     {
-        Debug.Log($"kill {gameObject}");
-        transform.position = startPos;
-        Health = 100;
-        foreach (var evil in Global.EvilRoutine)
+        if (isNemesis)
         {
-            StopCoroutine(evil);
+            Debug.Log($"kill {gameObject}");
+            transform.position = startPos;
+            Health = 100;
+            foreach (var evil in Global.EvilRoutine)
+            {
+                StopCoroutine(evil);
+            }
+            var camera = Camera.main.GetComponent<CameraScript>();
+            StartCoroutine(camera.Restart());
+            foreach (var reset in reseters)
+            {
+                reset.BroadcastMessage("AutoReset");
+            }
+            Resistance.ResistanceNow = Resistance.ResistanceStore;
+            Global.LifeCount -= 1;
+            if (Global.LifeCount < 0)
+            {
+                SceneManager.LoadScene("GameEnd");
+            }
         }
-        var camera = Camera.main.GetComponent<CameraScript>();
-        StartCoroutine(camera.Restart());
-        foreach (var reset in reseters)
+        else
         {
-            reset.BroadcastMessage("AutoReset");
+            Destroy(gameObject);
         }
-        Resistance.ResistanceNow = Resistance.ResistanceStore;
     }
 }

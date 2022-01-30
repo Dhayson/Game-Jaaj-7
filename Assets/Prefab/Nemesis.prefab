@@ -46,9 +46,9 @@ GameObject:
   - component: {fileID: 749615699402040813}
   - component: {fileID: 8308608744314451680}
   - component: {fileID: 3528914433957788975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Nemesis
-  m_TagString: Untagged
+  m_TagString: Nemesis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279a7f5f95adb2c8686e03a3acde0a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNemesis: 1
   reseters: []
   Health: 100
   InvulnerableTime: 0
@@ -171,6 +172,8 @@ MonoBehaviour:
   speedBase: 1
   speedMultiplier: 1
   jumpFactor: 1
+  shock: 0
+  wet: 0
 --- !u!1 &6217688255013380960
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,24 +6,36 @@ public class NemesisMove : MonoBehaviour
 {
     private Rigidbody2D rig;
     private Stats stats;
+    private Collider2D col;
     public float vel;
     public float jumpForce;
     [SerializeField] LayerMask level;
     [SerializeField] Transform groundDetector;
     [SerializeField] private List<AttachedCoroutine<Collider2D>> jumpRoutines;
-    private bool groundContact { get { return Physics2D.OverlapPoint(groundDetector.position, level); } }
+    private List<ContactPoint2D> contacts;
+    private bool groundContact
+    {
+        get
+        {
+            col.GetContacts(contacts);
+            return Physics2D.OverlapPoint(groundDetector.position, level) &&
+            contacts.FindAll(cont => Global.CompareLayer(cont.collider.gameObject.layer, level)).Count > 0;
+        }
+    }
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         stats = GetComponent<Stats>();
+        col = GetComponent<Collider2D>();
         jumpRoutines = new();
+        contacts = new();
     }
 
     void FixedUpdate()
     {
         if (!stats.shock)
-            rig.velocity = new Vector2(vel * stats.speedFactor, rig.velocity.y);
+            rig.velocity = new Vector2(vel * stats.speedMultiplier + stats.drag, rig.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -54,7 +66,7 @@ public class NemesisMove : MonoBehaviour
 
     public IEnumerator Jump()
     {
-        yield return new WaitUntil(() => groundContact || !stats.shock);
+        yield return new WaitUntil(() => groundContact && !stats.shock);
         rig.velocity = new Vector2(rig.velocity.x, 0);
         rig.AddForce(new Vector2(0, jumpForce * stats.jumpFactor));
     }

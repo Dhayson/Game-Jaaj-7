@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ClickHability : ClickImage
 {
     [SerializeField] private Hability skill;
-    [SerializeField] private Key key;
+    public Key key;
     [SerializeField] private string nextScene;
     // Start is called before the first frame update
     new void Start()

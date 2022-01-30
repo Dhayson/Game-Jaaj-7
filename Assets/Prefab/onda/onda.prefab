@@ -139,8 +139,11 @@ MonoBehaviour:
   Level:
     serializedVersion: 2
     m_Bits: 64
+  Entity:
+    serializedVersion: 2
+    m_Bits: 384
   Nemesis:
     serializedVersion: 2
     m_Bits: 128
   velocity: 7
-  acceleration: 10
+  acceleration: 12

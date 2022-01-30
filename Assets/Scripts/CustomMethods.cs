@@ -38,6 +38,7 @@ public static class Global
         return layermask == (layermask | (1 << layer));
     }
     public static List<Coroutine> EvilRoutine = new();
+    public static int LifeCount = 20;
 }
 
 public static class HabilitySet
@@ -50,7 +51,7 @@ public static class HabilitySet
     public static Hability S;
 }
 
-public enum Hability { vazio, gelo, raio, onda, espinho }
+public enum Hability { vazio, gelo, raio, onda, espinho, gravidade, lesma, fogo }
 public enum Key { Q, W, E, R, A, S }
 
 public static class UniqueNumber
@@ -84,11 +85,17 @@ public struct Resistance
         raio = 1;
         onda = 1;
         espinho = 1;
+        gravidade = 1;
+        fogo = 1;
+        lesma = 1;
     }
     public float gelo;
     public float raio;
     public float onda;
     public float espinho;
+    public float gravidade;
+    public float fogo;
+    public float lesma;
     public static Resistance ResistanceNow = new(true);
     public static Resistance ResistanceStore = new(true);
 }
