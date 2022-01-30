@@ -10,6 +10,9 @@ public class Lesma : MonoBehaviour
     [SerializeField] private float vel;
     [SerializeField] Collider2D colNormal;
     [SerializeField] Collider2D colBottom;
+    [SerializeField] LayerMask level;
+    [SerializeField] private Transform insideDetector;
+
     private float Resist
     {
         get
@@ -27,7 +30,7 @@ public class Lesma : MonoBehaviour
     void FixedUpdate()
     {
         float s = Mathf.Sign(Nemesis.transform.position.x - transform.position.x);
-        rig.velocity = new Vector2(vel * s + (stats.speedBase - 1) * 10, rig.velocity.y);
+        rig.velocity = new Vector2(vel * s + stats.drag, rig.velocity.y);
         transform.localScale = new Vector3(
             Mathf.Abs(transform.localScale.x) * -s,
             transform.localScale.y,
@@ -41,7 +44,7 @@ public class Lesma : MonoBehaviour
         {
             GameObject nemesis = other.gameObject;
             Stats stats = nemesis.GetComponent<Stats>();
-            Rigidbody2D rig = nemesis.GetComponent<Rigidbody2D>();
+            Rigidbody2D rigNeme = nemesis.GetComponent<Rigidbody2D>();
 
             if (other.otherCollider == colNormal)
             {
@@ -64,7 +67,7 @@ public class Lesma : MonoBehaviour
 
                 for (int i = 0; i < 3; i++)
                 {
-                    rig.velocity *= 0.9f;
+                    rigNeme.velocity *= 0.9f;
                     int damage = (int)(dps / Resist);
                     stats.Damage(damage);
                     stats.speedMultiplier /= slow;
@@ -76,6 +79,15 @@ public class Lesma : MonoBehaviour
 
             Resistance.ResistanceStore.lesma += 0.08f;
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (Global.CompareLayer(other.collider.gameObject.layer, level)
+            && Physics2D.OverlapPoint(insideDetector.position, level))
+        {
+            transform.position -= new Vector3(0, -0.5f, 0);
         }
     }
 }
